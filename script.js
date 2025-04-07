@@ -36,11 +36,36 @@ document.addEventListener('DOMContentLoaded', () => {
             gameControls.insertBefore(fullscreenBtn, gameControls.firstChild);
         }
 
+        // Adjust iframe size to maximize available space
+        function adjustIframeSize() {
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+            const gameControls = document.querySelector('.game-controls');
+            const gameTitle = document.querySelector('.game-container h2');
+            
+            const headerHeight = header ? header.offsetHeight : 0;
+            const footerHeight = footer ? footer.offsetHeight : 0;
+            const controlsHeight = gameControls ? gameControls.offsetHeight : 0;
+            const titleHeight = gameTitle ? gameTitle.offsetHeight : 0;
+            
+            const availableHeight = window.innerHeight - headerHeight - footerHeight - controlsHeight - titleHeight;
+            
+            const iframeContainer = document.querySelector('.iframe-container');
+            if (iframeContainer) {
+                iframeContainer.style.height = `${availableHeight}px`;
+            }
+        }
+        
+        // Adjust size on load and window resize
+        window.addEventListener('load', adjustIframeSize);
+        window.addEventListener('resize', adjustIframeSize);
+
         // Make sure iframe takes focus when the page loads for better game experience
         window.addEventListener('load', () => {
             setTimeout(() => {
                 if (iframe) {
                     iframe.focus();
+                    adjustIframeSize();
                 }
             }, 1000);
         });

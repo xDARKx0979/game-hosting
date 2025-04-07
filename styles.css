@@ -79,8 +79,16 @@ main {
 }
 
 .game-container.fullscreen .iframe-container {
-    height: 90vh;
+    height: calc(100vh - 120px);
     padding-top: 0;
+    width: 100%;
+}
+
+.game-container.fullscreen {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
 }
 
 .game-controls {
