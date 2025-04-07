@@ -44,13 +44,13 @@ nav ul li a:hover, nav ul li a.active {
 
 main {
     max-width: 1200px;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding: 0 1rem;
 }
 
 /* Game Container Styles */
 .game-container {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -58,7 +58,7 @@ main {
 }
 
 .game-container h2 {
-    padding: 1rem;
+    padding: 0.75rem;
     background: #555;
     color: #fff;
 }
@@ -79,14 +79,17 @@ main {
 }
 
 .game-container.fullscreen .iframe-container {
-    height: 80vh;
+    height: 90vh;
     padding-top: 0;
 }
 
 .game-controls {
-    padding: 1rem;
+    padding: 0.5rem;
     background: #f8f8f8;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .back-button {
@@ -101,6 +104,22 @@ main {
 
 .back-button:hover {
     background: #555;
+}
+
+.fullscreen-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.fullscreen-button:hover {
+    background: #0055aa;
 }
 
 /* Home page styles */
@@ -173,7 +192,37 @@ main {
 
 footer {
     text-align: center;
-    padding: 1rem;
+    padding: 0.75rem;
     background: #333;
     color: #fff;
+}
+
+/* Game page specific styles */
+.game-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.compact-header {
+    padding: 0.5rem;
+}
+
+.compact-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.compact-header nav ul {
+    padding: 0.25rem 0;
+}
+
+.game-page main {
+    flex: 1;
+    margin: 0.5rem auto;
+}
+
+.compact-footer {
+    padding: 0.5rem;
+    font-size: 0.9rem;
 } 
